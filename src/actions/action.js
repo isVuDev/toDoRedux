@@ -6,15 +6,54 @@ export const SEARCH_CHANGE = 'SEARCH_CHANGE';
 export const SEARCH_RESET = 'SEARCH_RESET';
 export const SEARCH_TODO = 'SEARCH_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
-export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 export const TOGGLE_READ = 'TOGGLE_READ';
+export const CALCULATE_TOTAL = 'CALCULATE_TOTAL';
+export const CALCULATE_READ = 'CALCULATE_READ';
+export const CALCULATE_COMPLETED = 'CALCULATE_COMPLETED';
 
-let nextID = 5 // initial
+export function calculateTotal() {
+    return{
+        type: CALCULATE_TOTAL,
+    }
+}
+
+export function calculateCompleted() {
+    return{
+        type: CALCULATE_COMPLETED,
+    }
+}
+
+export function calculateRead() {
+    return{
+        type: CALCULATE_READ,
+    }
+}
+
+export function deleteToDo(id) {
+    return {
+        type: DELETE_TODO,
+        id,
+    }
+}
+
+export function toggleCompleted(id) {
+    return {
+        type: TOGGLE_COMPLETED,
+        id
+    }
+}
+
+export function toggleRead(id) {
+    return {
+        type: TOGGLE_READ,
+        id,
+    }
+}
 
 export function addToDo() {
     return {
         type: ADD_TODO,
-        id: nextID++
     }
 }
 export function addToDoChange(addText) {

@@ -1,26 +1,28 @@
 import {createStore} from 'redux';
 import toDoReducer from '../reducers/toDoReducer';
 const initialState = {
-    filterText: "",
+    searchText: "",
     addText: "you're the first one",
-    test: "test",
+    total_todo: 0,
+    completed_todo: 0,
+    read_todo: 0,
     items: [{
-        id: 1,
+        id: 0,
         completed: false,
         read: false,
         content: "To Do 1"
     }, {
-        id: 2,
+        id: 1,
         completed: true,
         read: false,
         content: "To Do 2"
     }, {
-        id: 3,
+        id: 2,
         completed: false,
         read: true,
         content: "To Do 3"
     }, {
-        id: 4,
+        id: 3,
         completed: true,
         read: true,
         content: "To Do 4"

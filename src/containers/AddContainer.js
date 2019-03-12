@@ -1,11 +1,10 @@
-import {addToDoReset, addToDoChange, addToDo} from '../actions/action'
-import InputText from '../components/InputText';
+import {addToDoReset, addToDoChange, addToDo, searchToDoReset} from '../actions/action'
 import {
     connect
 } from 'react-redux';
+import InputAdd from '../components/InputAdd';
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         addText : state.addText,
     }
@@ -13,12 +12,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
         onTextClick : ()=>dispatch(addToDoReset()),
-        onTextChange: (e) => console.log('value',e.target.value) 
-        || dispatch(addToDoChange(e.target.value)),
-        onAddClick: () => dispatch(addToDo()),
+        onTextChange: (e) => dispatch(addToDoChange(e.target.value)),
+        onAddClick: () => (dispatch(addToDo()) && dispatch(searchToDoReset())),
 })
 
 
-const AddContainer = connect(mapStateToProps,mapDispatchToProps)(InputText);
+const AddContainer = connect(mapStateToProps,mapDispatchToProps)(InputAdd);
 
 export default AddContainer;
